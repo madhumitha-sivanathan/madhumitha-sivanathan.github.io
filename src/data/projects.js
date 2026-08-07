@@ -1,0 +1,88 @@
+// TODO: add real GitHub repo URLs (and live demo URLs where they exist).
+// Leaving `github: null` renders no button rather than a fake/broken link.
+export const projects = [
+  {
+    id: 'fire-detection',
+    title: 'Real-Time Fire Detection from RTSP Camera Streams',
+    shortTitle: 'Real-Time Fire Detection',
+    tag: 'Computer Vision · Real-Time',
+    description:
+      'A computer vision pipeline that watches live RTSP camera streams and flags fire in real time for monitoring applications — built around continuous frame ingestion, not single-image classification.',
+    contribution:
+      'Built the RTSP stream simulator used to test the pipeline, integrated FFmpeg and MediaMTX into the streaming workflow, and worked on the frame-processing and detection path end to end.',
+    problem: 'Fixed cameras generate continuous RTSP video, but most fire-detection demos only classify static images — no real streaming path, no alerting.',
+    solution: 'A pipeline that pulls live RTSP frames, runs YOLO-based detection on them, and raises a real-time alert the moment fire is detected.',
+    result: 'A working end-to-end pipeline from live camera stream to detection alert, currently under active development as part of an ongoing internship.',
+    pipeline: ['RTSP Camera', 'Frame Processing', 'YOLO Detection', 'Fire / No Fire', 'Real-Time Alert'],
+    tech: ['Python', 'Computer Vision', 'YOLO', 'FFmpeg', 'MediaMTX', 'RTSP'],
+    github: null,
+    demo: null,
+    status: 'In Progress',
+    featured: true,
+  },
+  {
+    id: 'dr-transformer',
+    title: 'Explainable Lesion-Aware Multimodal Transformer for Personalized Diabetic Retinopathy Severity Grading',
+    shortTitle: 'Lesion-Aware Multimodal DR Grading',
+    tag: 'Deep Learning · Multimodal · Explainable AI',
+    description:
+      'A multimodal deep learning system that combines retinal fundus images with clinical biomarkers to grade diabetic retinopathy severity, with explainability built in rather than bolted on.',
+    contribution:
+      'Designed the multimodal architecture combining a YOLO-based lesion detector with a Vision Transformer image encoder and a separate clinical encoder, and integrated Grad-CAM and SHAP for interpretability.',
+    problem: 'Most DR grading models rely on the fundus image alone and give a severity score with no explanation clinicians can act on.',
+    solution: 'Fuse lesion-level visual features with structured clinical biomarkers in a single transformer-based architecture, and pair every prediction with visual and feature-level explanations.',
+    result: 'An academic prototype demonstrating lesion-aware, multimodal severity grading with Grad-CAM and SHAP explanations for clinical decision support.',
+    pipeline: [
+      'Retinal Fundus Image + Clinical Biomarkers',
+      'Preprocessing',
+      'YOLO Lesion Detection',
+      'Vision Transformer + Clinical Encoder',
+      'Lesion-Aware Multimodal Transformer',
+      'DR Severity Prediction',
+      'Grad-CAM + SHAP',
+      'Clinical Decision Support',
+    ],
+    tech: ['Python', 'PyTorch', 'YOLO', 'Vision Transformer', 'SHAP', 'Grad-CAM', 'Deep Learning', 'Multimodal Learning'],
+    github: null,
+    demo: null,
+    status: 'Academic Project',
+    featured: true,
+  },
+  {
+    id: 'brain-tumor',
+    title: 'Automated Brain Tumor Diagnosis Using YOLO-Based Deep Learning',
+    shortTitle: 'Brain Tumor Diagnosis (YOLO)',
+    tag: 'Computer Vision · Deep Learning',
+    description:
+      'A YOLO-based computer vision system for automated detection of brain tumors from MRI scans, deployed as an interactive Streamlit app.',
+    contribution:
+      'Trained and evaluated the YOLO detection model, built the Streamlit interface for interactive diagnosis, and deployed the app on Render.',
+    problem: 'Manual review of MRI scans for tumor presence is slow and depends on radiologist availability.',
+    solution: 'A YOLO-based detector trained on MRI scans, wrapped in a simple Streamlit app for fast, interactive screening.',
+    result: 'A deployed, interactive detection tool; presented at TNwise 2026.',
+    pipeline: ['MRI Scan Input', 'Preprocessing', 'YOLO Detection', 'Tumor / No Tumor', 'Streamlit Output'],
+    tech: ['Python', 'YOLO', 'Deep Learning', 'Computer Vision', 'Streamlit'],
+    github: null,
+    demo: null,
+    status: 'Presented at TNwise 2026',
+    featured: true,
+  },
+  {
+    id: 'smart-cart',
+    title: 'Smart Shopping Cart',
+    shortTitle: 'Smart Shopping Cart',
+    tag: 'IoT · Embedded Systems',
+    description:
+      'An RFID-based smart shopping cart that scans tagged items as they\u2019re added and keeps a running bill automatically, removing the checkout-counter bottleneck.',
+    contribution: 'Worked on the RFID scanning logic and the database layer that tracks cart items and totals in real time.',
+    problem: 'Checkout queues are a bottleneck in physical retail, largely because billing only happens at the counter.',
+    solution: 'Tag items with RFID and read them as they enter the cart, maintaining a live, itemized bill throughout shopping.',
+    result: 'A working hardware-software prototype demonstrating automatic, real-time billing.',
+    pipeline: ['RFID Tag Scan', 'Item Lookup', 'Cart Database Update', 'Live Bill'],
+    tech: ['RFID', 'IoT', 'Database', 'Embedded Systems'],
+    github: null,
+    demo: null,
+    status: 'Prototype',
+    featured: false,
+  },
+];
