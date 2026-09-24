@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, ChevronDown, Workflow } from 'lucide-react';
 import { GithubIcon } from './icons/SocialIcons';
-import ProjectThumb from './ProjectThumb';
 import PipelineDiagram from './PipelineDiagram';
 
 export default function ProjectCard({ project }) {
@@ -14,8 +13,6 @@ export default function ProjectCard({ project }) {
       transition={{ duration: 0.25, ease: 'easeOut' }}
       className="group rounded-xl glass overflow-hidden flex flex-col h-full"
     >
-      <ProjectThumb id={project.id} />
-
       <div className="flex flex-col flex-1 p-6">
         <p className="font-mono text-[11px] tracking-wide text-accent-cyan uppercase mb-2">{project.tag}</p>
         <h3 className="font-display font-semibold text-lg text-ink leading-snug">{project.shortTitle}</h3>
@@ -35,7 +32,7 @@ export default function ProjectCard({ project }) {
           ))}
         </div>
 
-        {project.pipeline && (
+        {(project.pipeline || project.architectureImage) && (
           <div className="mt-5">
             <button
               onClick={() => setShowPipeline((v) => !v)}
@@ -56,11 +53,33 @@ export default function ProjectCard({ project }) {
                   className="overflow-hidden"
                 >
                   <div className="mt-4 pt-4 border-t border-line">
-                    <PipelineDiagram steps={project.pipeline} />
-                    <p className="mt-4 text-xs text-ink-dim leading-relaxed">
-                      <span className="text-ink-muted">Result: </span>
-                      {project.result}
-                    </p>
+                    {project.architectureImage ? (
+                      <>
+                        <a
+                          href={project.architectureImage}
+                          target="_blank"
+                          rel="noreferrer"
+                          aria-label={`Open ${project.shortTitle} architecture diagram full size`}
+                          className="block rounded-lg overflow-hidden border border-line bg-white"
+                        >
+                          <img
+                            src={project.architectureImage}
+                            alt={`Architecture diagram for ${project.shortTitle}`}
+                            loading="lazy"
+                            className="w-full h-auto"
+                          />
+                        </a>
+                        <p className="mt-2 font-mono text-[11px] text-ink-muted">Click the diagram to view it full size.</p>
+                      </>
+                    ) : (
+                      <PipelineDiagram steps={project.pipeline} />
+                    )}
+                    {project.result && (
+                      <p className="mt-4 text-xs text-ink-dim leading-relaxed">
+                        <span className="text-ink-muted">Result: </span>
+                        {project.result}
+                      </p>
+                    )}
                   </div>
                 </motion.div>
               )}
@@ -68,7 +87,7 @@ export default function ProjectCard({ project }) {
           </div>
         )}
 
-        <div className="mt-6 pt-4 border-t border-line flex items-center gap-3">
+        <div className="mt-6 pt-4 border-t border-line flex flex-wrap items-center gap-3">
           {project.github ? (
             <a
               href={project.github}
@@ -93,7 +112,7 @@ export default function ProjectCard({ project }) {
               <ExternalLink size={14} /> Live Demo
             </a>
           )}
-          <span className="ml-auto font-mono text-[11px] text-ink-dim">{project.status}</span>
+          <span className="ml-auto text-right font-mono text-[11px] text-ink-dim">{project.status}</span>
         </div>
       </div>
     </motion.article>

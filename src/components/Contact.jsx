@@ -42,7 +42,7 @@ export default function Contact() {
 
           <a
             href={profile.resumeUrl}
-            download
+            download="Madhumitha_Sivanathan_Resume.pdf"
             className="relative inline-flex items-center gap-2 rounded-lg bg-accent-indigo px-6 py-3 font-medium text-white shadow-glow transition-transform hover:-translate-y-0.5"
           >
             <FileDown size={16} />

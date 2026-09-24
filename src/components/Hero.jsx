@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { Mail, ArrowDown, FileDown } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './icons/SocialIcons';
 import { profile } from '../data/profile';
-import HeroVisual from './HeroVisual';
+import HeroPortrait from './HeroPortrait';
 
 const container = {
   hidden: {},
@@ -49,7 +49,7 @@ export default function Hero() {
             </a>
             <a
               href={profile.resumeUrl}
-              download
+              download="Madhumitha_Sivanathan_Resume.pdf"
               className="inline-flex items-center gap-2 rounded-lg glass px-5 py-3 font-medium text-ink transition-transform hover:-translate-y-0.5"
             >
               <FileDown size={16} />
@@ -84,7 +84,7 @@ export default function Hero() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, ease: 'easeOut', delay: 0.2 }}
         >
-          <HeroVisual />
+          <HeroPortrait />
         </motion.div>
       </div>
     </section>

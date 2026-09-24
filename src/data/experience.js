@@ -1,8 +1,8 @@
 export const experience = [
   {
     company: 'Aattral Research Private Limited',
-    role: 'AI / Computer Vision Intern',
-    period: '2026 \u2013 Present',
+    role: 'Student Intern',
+    period: 'July 2026 \u2013 Present',
     bullets: [
       'Developed an RTSP stream simulator for testing real-time computer vision pipelines.',
       'Working on real-time fire detection from RTSP camera streams.',
@@ -13,7 +13,7 @@ export const experience = [
   {
     company: 'Cantier Systems Private Limited',
     role: 'Research Intern',
-    period: '2026',
+    period: 'May 2026',
     bullets: [
       'Evaluated software architecture and MySQL database designs for a KPI Management Platform.',
       'Developed structured API workflows using Next.js and Express.js.',

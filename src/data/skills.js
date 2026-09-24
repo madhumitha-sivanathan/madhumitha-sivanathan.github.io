@@ -7,7 +7,7 @@ export const skillGroups = [
   },
   {
     category: 'AI / ML',
-    items: ['Machine Learning', 'Deep Learning', 'Computer Vision', 'PyTorch', 'YOLO'],
+    items: ['Machine Learning', 'Deep Learning', 'Computer Vision', 'PyTorch', 'TensorFlow', 'YOLO'],
   },
   {
     category: 'Web Development',
@@ -15,14 +15,10 @@ export const skillGroups = [
   },
   {
     category: 'Databases',
-    items: ['MySQL', 'MongoDB'],
+    items: ['MySQL'],
   },
   {
     category: 'Tools & Technologies',
     items: ['Git', 'GitHub', 'FFmpeg', 'MediaMTX'],
-  },
-  {
-    category: 'Cloud',
-    items: ['AWS'],
   },
 ];
